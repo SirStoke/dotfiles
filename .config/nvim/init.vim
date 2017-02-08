@@ -26,6 +26,9 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'ensime/ensime-vim'
 Plugin 'jacoborus/tender.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sleuth'
+Plugin 'w0ng/vim-hybrid'
 
 call vundle#end()
 filetype plugin indent on
@@ -44,8 +47,9 @@ let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 
-colorscheme tender
-let g:airline_theme = 'tender'
+set background=dark
+let g:airline_theme='hybrid'
+colorscheme hybrid
 
 let mapleader = ','
 
