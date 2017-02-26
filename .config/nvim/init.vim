@@ -47,9 +47,11 @@ let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 
+"colorscheme tender
+"
 set background=dark
-let g:airline_theme='hybrid'
 colorscheme hybrid
+let g:airline_theme = 'tender'
 
 let mapleader = ','
 
@@ -63,6 +65,15 @@ nnoremap <Leader>sd :EnDeclarationSplit<SPACE>v<CR>
 " CtrlP mappings
 nnoremap <SPACE><SPACE> :CtrlP<CR>
 nnoremap b<SPACE> :CtrlPBuffer<CR>
+
+" NERDTree mappings
+nnoremap f<SPACE> :ex .<CR>
+
+" Vim-fugitive mappings
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gl :Glog<CR>
 
 " Buffer mappings
 nnoremap <Leader>n :bnext<CR>
