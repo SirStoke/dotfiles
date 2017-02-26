@@ -75,7 +75,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gps :Gpush<CR>
-nnoremap <Leader>gpl :Gpush<CR>
+nnoremap <Leader>gpl :Gpull<CR>
 
 " Buffer mappings
 nnoremap <Leader>n :bnext<CR>
