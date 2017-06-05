@@ -42,3 +42,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$PATH:/home/sandro/sbt/bin:/home/sandro/Scaricati/jdk1.8.0_111/bin"
 export JAVA_HOME="/home/sandro/Scaricati/jdk1.8.0_111"
+
+# Workaround to terminator not resetting after closing vim
+export PROMPT="$(printf '\033[0 q\033]12;#AAAAAA\a')$PROMPT"
