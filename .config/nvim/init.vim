@@ -10,61 +10,68 @@ syntax on
 set nocompatible
 filetype off
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'croaker/mustang-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'moll/vim-node'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'ensime/ensime-vim'
-Plugin 'jacoborus/tender.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sleuth'
-Plugin 'w0ng/vim-hybrid'
+Plug 'croaker/mustang-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'moll/vim-node'
+Plug 'w0rp/ale'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'vim-syntastic/syntastic'
+Plug 'derekwyatt/vim-scala'
+Plug 'jacoborus/tender.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
+Plug 'w0ng/vim-hybrid'
+Plug 'godlygeek/tabular'
+Plug 'mzlogin/vim-smali'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'joshdick/onedark.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on
 
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:nerdtree_tabs_smart_startup_focus=1
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
 
-let mapleader = "s"
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ }
+
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
 
 let g:airline_powerline_fonts = 1 
 
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
+let $FZF_DEFAULT_COMMAND='fd --type f'
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 
-"colorscheme tender
-"
 set background=dark
-colorscheme hybrid
-let g:airline_theme = 'tender'
+colorscheme base16-onedark
 
 let mapleader = ','
 
-" Ensime mappings
-nnoremap <Leader>t :EnType<CR>
-nnoremap <Leader>it :EnInspectType<CR>
-nnoremap <Leader>im :EnSuggestImport<CR>
-nnoremap <Leader>d :EnDeclaration<CR>
-nnoremap <Leader>sd :EnDeclarationSplit<SPACE>v<CR>
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " CtrlP mappings
-nnoremap <SPACE><SPACE> :CtrlP<CR>
-nnoremap b<SPACE> :CtrlPBuffer<CR>
+nnoremap <SPACE><SPACE> :FZF<CR>
+nnoremap b<SPACE> :Buffers<CR>
 
 " NERDTree mappings
 nnoremap f<SPACE> :ex .<CR>
@@ -81,4 +88,7 @@ nnoremap <Leader>gpl :Gpull<CR>
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>p :bprev<CR>
 
-set mouse=n
+nnoremap <Leader>l :nohl<CR>
+
+"ALE mappings
+nnoremap <Leader>f :ALEFix<CR>
