@@ -84,10 +84,10 @@ set undofile
 
 " CtrlP mappings
 nnoremap <SPACE><SPACE> :FZF<CR>
-nnoremap b<SPACE> :Buffers<CR>
+nnoremap <SPACE>b :Buffers<CR>
 
 " NERDTree mappings
-nnoremap f<SPACE> :ex .<CR>
+nnoremap <SPACE>f :ex .<CR>
 
 " Vim-fugitive mappings
 nnoremap <Leader>gc :Gcommit<CR>
