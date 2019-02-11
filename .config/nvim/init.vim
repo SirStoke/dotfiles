@@ -59,15 +59,28 @@ let g:airline_powerline_fonts = 1
 
 let $FZF_DEFAULT_COMMAND='fd --type f'
 
+" Better search
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
+
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 
 set background=dark
-colorscheme base16-onedark
+colorscheme base16-eighties
 
 let mapleader = ','
 
-let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let b:ale_fixers = {
+  \'javascript': ['prettier', 'eslint'],
+  \'javascript.jsx': ['prettier', 'eslint'],
+\}
+
+" Permanent undo
+set undodir=~/.vimdid
+set undofile
 
 " CtrlP mappings
 nnoremap <SPACE><SPACE> :FZF<CR>
@@ -78,6 +91,7 @@ nnoremap f<SPACE> :ex .<CR>
 
 " Vim-fugitive mappings
 nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>ga :Gcommit -a<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :Glog<CR>
@@ -90,5 +104,8 @@ nnoremap <Leader>p :bprev<CR>
 
 nnoremap <Leader>l :nohl<CR>
 
-"ALE mappings
+" ALE mappings
 nnoremap <Leader>f :ALEFix<CR>
+
+" Split mappings
+nnoremap <Leader>= <C-W>=
