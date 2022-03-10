@@ -36,6 +36,7 @@ Plug 'mxw/vim-jsx'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'earthly/earthly.vim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -55,7 +56,7 @@ let g:lightline = {
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 
-let g:airline_powerline_fonts = 1 
+let g:airline_powerline_fonts = 1
 
 let $FZF_DEFAULT_COMMAND='fd --type f'
 
